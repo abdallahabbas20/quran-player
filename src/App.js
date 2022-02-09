@@ -1,23 +1,88 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useRef } from "react";
+import "./styles/app.scss";
+import Player from "./components/Player";
+import Surah from "./components/Surah";
+import PalettePlayer, { getSurahs } from "./data";
+import Library from "./components/Library";
+import Nav from "./components/Nav";
 
 function App() {
+  const [surahs, setSurahs] = useState(getSurahs());
+  const [currentSurah, setCurrentSurah] = useState(surahs[0]);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [libraryStatus, setLibraryStatus] = useState(false);
+  const [selectedOption, setSelectedOption] = useState("");
+  const audioRef = useRef(null);
+
+  const [surahInfo, setSurahInfo] = useState({
+    currentTime: 0,
+    duration: 0,
+    animationPercentage: 0,
+  });
+
+  const timeUpdateHandler = (e) => {
+    const current = e.target.currentTime;
+    const duration = e.target.duration;
+    const roundedCurrent = Math.round(current);
+    const roundedDuration = Math.round(duration);
+    const animationPercentage = Math.round(
+      (roundedCurrent / roundedDuration) * 100
+    );
+
+    setSurahInfo({
+      ...surahInfo,
+      currentTime: current,
+      duration,
+      animationPercentage,
+    });
+  };
+
+  const surahEndHandler = async () => {
+    let currentSurahIndex = surahs.findIndex(
+      (surah) => surah.id === currentSurah.id
+    );
+    console.log({ currentSurahIndex });
+
+    await setCurrentSurah(
+      surahs[
+        currentSurahIndex + 1 === surahs.length ? 0 : currentSurahIndex + 1
+      ]
+    );
+    if (isPlaying) audioRef.current.play();
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={`App ${libraryStatus ? "library-active" : ""}`}>
+      <Nav libraryStatus={libraryStatus} setLibraryStatus={setLibraryStatus} />
+      <Surah currentSurah={currentSurah} />
+      <Player
+        currentSurah={currentSurah}
+        isPlaying={isPlaying}
+        setIsPlaying={setIsPlaying}
+        audioRef={audioRef}
+        surahInfo={surahInfo}
+        setSurahInfo={setSurahInfo}
+        surahs={surahs}
+        setCurrentSurah={setCurrentSurah}
+      />
+      <Library
+        surahs={surahs}
+        currentSurah={currentSurah}
+        setCurrentSurah={setCurrentSurah}
+        audioRef={audioRef}
+        isPlaying={isPlaying}
+        libraryStatus={libraryStatus}
+        selectedOption={selectedOption}
+        setSelectedOption={setSelectedOption}
+        setSurahs={setSurahs}
+      />
+      <audio
+        ref={audioRef}
+        src={currentSurah.audio}
+        onTimeUpdate={timeUpdateHandler}
+        onLoadedMetadata={timeUpdateHandler}
+        onEnded={surahEndHandler}
+      ></audio>
     </div>
   );
 }
