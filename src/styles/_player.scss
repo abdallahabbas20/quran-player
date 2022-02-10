@@ -42,6 +42,18 @@ input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
   height: 16px;
   width: 16px;
+  background: transparent;
+  border: none;
+
+  z-index: 100;
+}
+
+input[type="range"]::-ms-thumb {
+  -webkit-appearance: none;
+  height: 16px;
+  width: 16px;
+  background: transparent;
+  border: none;
 
   z-index: 100;
 }
