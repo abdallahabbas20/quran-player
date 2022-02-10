@@ -21,7 +21,7 @@ const LibrarySurah = ({
   const s = {
     width: "50px",
     height: "50px",
-    borderRadius: "10%",
+    borderRadius: "50%",
     // backgroundColor: `rgb(${getColor()}, ${getColor()}, ${getColor()})`,
     backgroundImage: `linear-gradient(to right, rgba(${surah.color[0]}, ${surah.color[1]}, ${surah.color[2]}), rgb(${surah.color[3]}, ${surah.color[4]}, ${surah.color[5]}))`,
   };

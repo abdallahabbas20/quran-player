@@ -29,7 +29,7 @@ const DropdownHeader = styled("div")`
   cursor: pointer;
   /* color: #0e0e46; */
   background: #ffffff;
-  border-radius: 10px;
+  /* border-radius: 10px; */
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none; /* Safari */
   -khtml-user-select: none; /* Konqueror HTML */
@@ -60,7 +60,7 @@ const DropdownList = styled("ul")`
   user-select: none;
   border: 2px solid #e5e5e567;
 
-  border-radius: 10px;
+  /* border-radius: 10px; */
   box-sizing: border-box;
   color: gray;
   font-size: 1rem;

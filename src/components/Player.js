@@ -95,6 +95,7 @@ const Player = ({
             max={surahInfo.duration || 0}
             value={surahInfo.currentTime}
             onChange={dragHandler}
+            onInput={dragHandler}
           />
           <div style={trackAnim} className="animate-track"></div>
         </div>

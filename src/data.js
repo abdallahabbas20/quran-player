@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from "uuid";
-import { Palette } from "color-thief-react";
+
 import React from "react";
 
 // SEPARATE THIS INTO A FUNCTION THAT RETURNS SURAH AUDIO LIST AND A FUNCTION THAT, GIVEN A SURAH< RETURNS THE COVER PHOTO AND COLORS (ONLY CALLED FOR ACTIVE SURAH)
@@ -49,39 +49,39 @@ export function getSurahs(reciter = "abdullaah_3awwaad_al-juhaynee") {
   return audioList;
 }
 
-function PalettePlayer() {
-  let coverURL =
-    "https://source.unsplash.com/collection/401930/480x480/?sig=500";
-  return (
-    <Palette
-      src={coverURL}
-      crossOrigin="anonymous"
-      format="hex"
-      colorCount={2}
-      quality={1000}
-    >
-      {({ data, loading }) => {
-        if (loading) {
-          return;
-        } else {
-          console.log(data);
-          return (
-            <div>
-              <img src={coverURL} />
-              Palette:
-              <ul>
-                {data.map((color, index) => (
-                  <li key={index} style={{ color: color }}>
-                    <strong>{color}</strong>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          );
-        }
-      }}
-    </Palette>
-  );
-}
+// function PalettePlayer() {
+//   let coverURL =
+//     "https://source.unsplash.com/collection/401930/480x480/?sig=500";
+//   return (
+//     <Palette
+//       src={coverURL}
+//       crossOrigin="anonymous"
+//       format="hex"
+//       colorCount={2}
+//       quality={1000}
+//     >
+//       {({ data, loading }) => {
+//         if (loading) {
+//           return;
+//         } else {
+//           console.log(data);
+//           return (
+//             <div>
+//               <img src={coverURL} />
+//               Palette:
+//               <ul>
+//                 {data.map((color, index) => (
+//                   <li key={index} style={{ color: color }}>
+//                     <strong>{color}</strong>
+//                   </li>
+//                 ))}
+//               </ul>
+//             </div>
+//           );
+//         }
+//       }}
+//     </Palette>
+//   );
+// }
 
-export default PalettePlayer;
+// export default PalettePlayer;
