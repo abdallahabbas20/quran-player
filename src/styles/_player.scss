@@ -52,9 +52,9 @@ input[type="range"]::-ms-thumb {
   -webkit-appearance: none;
   height: 16px;
   width: 16px;
-  background: transparent;
+  background: yellow;
   border: none;
-
+  box-shadow: none;
   z-index: 100;
 }
 
