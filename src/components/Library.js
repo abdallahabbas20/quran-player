@@ -21,6 +21,7 @@ const Library = ({
         setSelectedOption={setSelectedOption}
         setSurahs={setSurahs}
       />
+
       <div className="library-surahs">
         {surahs.map((surah) => (
           <LibrarySurah

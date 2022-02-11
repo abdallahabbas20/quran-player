@@ -5,9 +5,10 @@ nav {
   align-items: center;
   margin: 0 100px;
   color: black;
+  transition: all 0.5s ease;
   button {
     background: white;
-
+    color: black;
     border: none;
     cursor: pointer;
     border: 2px solid rgb(65, 65, 65);

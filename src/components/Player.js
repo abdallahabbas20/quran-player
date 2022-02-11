@@ -16,6 +16,7 @@ const Player = ({
   setSurahInfo,
   surahs,
   setCurrentSurah,
+  libraryStatus,
 }) => {
   const playSurahHandler = () => {
     console.log(audioRef);
@@ -80,7 +81,7 @@ const Player = ({
   };
 
   return (
-    <div className="player">
+    <div className={`player ${libraryStatus ? "library-active" : ""}`}>
       <div className="time-control">
         <p>{getTime(surahInfo.currentTime)}</p>
         <div

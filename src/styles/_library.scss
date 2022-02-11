@@ -8,11 +8,16 @@
   transition: all 0.5s ease;
   opacity: 0;
   box-shadow: 2px 2px 50px rgb(231, 231, 231);
-  overflow: scroll;
 
   h2 {
     padding: 2rem 2rem;
   }
+}
+
+.library-surahs {
+  overflow: scroll;
+  overflow-y: auto;
+  height: calc(100% - 130px);
 }
 
 .open-library {

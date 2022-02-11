@@ -28,7 +28,8 @@ h3 {
 
 @media screen and (min-width: 768px) {
   .library-active {
-    margin-left: 20%;
+    margin-left: 200px;
+    // transform: translateX(200px);
   }
 }
 

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Surah = ({ currentSurah }) => {
+const Surah = ({ currentSurah, libraryStatus }) => {
   const s = {
     width: "275px",
     height: "275px",
@@ -14,7 +14,7 @@ const Surah = ({ currentSurah }) => {
   };
 
   return (
-    <div className="surah-container">
+    <div className={`surah-container`}>
       {/* {!loading && <div className="loading-cover"></div>}
       <img
         src={currentSurah.cover}

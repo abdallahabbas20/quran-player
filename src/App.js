@@ -54,7 +54,7 @@ function App() {
   return (
     <div className={`App ${libraryStatus ? "library-active" : ""}`}>
       <Nav libraryStatus={libraryStatus} setLibraryStatus={setLibraryStatus} />
-      <Surah currentSurah={currentSurah} />
+      <Surah currentSurah={currentSurah} libraryStatus={libraryStatus} />
       <Player
         currentSurah={currentSurah}
         isPlaying={isPlaying}
@@ -64,6 +64,7 @@ function App() {
         setSurahInfo={setSurahInfo}
         surahs={surahs}
         setCurrentSurah={setCurrentSurah}
+        // libraryStatus={libraryStatus}
       />
       <Library
         surahs={surahs}
