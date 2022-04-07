@@ -25,9 +25,14 @@ const Nav = ({
   return (
     <nav>
       <h1>Quran.io</h1>
-      <div>
-        <button onClick={onGameClickHandler}>Start Game</button>
-        <button onClick={onClickHandler}>Library</button>
+      <div className="inline">
+        <button className="hide" onClick={onGameClickHandler}>
+          Start Game
+        </button>
+
+        <button className="stay-top" onClick={onClickHandler}>
+          Library
+        </button>
       </div>
     </nav>
   );

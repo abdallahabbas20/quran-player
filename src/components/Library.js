@@ -15,7 +15,10 @@ const Library = ({
 }) => {
   return (
     <div className={`library ${libraryStatus ? "open-library" : ""}`}>
-      <h2>Library</h2>
+      <div className="transparent">
+        <h2>Library</h2>
+      </div>
+
       <Dropdown
         selectedOption={selectedOption}
         setSelectedOption={setSelectedOption}

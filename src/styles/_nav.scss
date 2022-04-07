@@ -14,7 +14,9 @@ nav {
     cursor: pointer;
     border: 2px solid rgb(65, 65, 65);
     padding: 0.5rem;
+
     transition: all 0.3s ease;
+
     &:hover {
       color: white;
       background: rgb(65, 65, 65);
@@ -29,4 +31,25 @@ nav {
       z-index: 10;
     }
   }
+}
+
+.stay-top {
+  z-index: 100;
+  position: fixed;
+  margin-right: 20px;
+  transform: translate(-120%);
+}
+
+.test {
+  display: inline;
+}
+
+.hide {
+  visibility: hidden;
+}
+
+.inline {
+  display: inline;
+  position: relative;
+  margin-right: 20px;
 }

@@ -1,6 +1,7 @@
 .library {
   position: fixed;
   top: 0;
+  z-index: 1;
   left: 0;
   width: 25rem;
   height: 100%;
@@ -22,6 +23,7 @@
 
 .open-library {
   opacity: 1;
+
   transform: translateX(0%);
   background: white;
 }
