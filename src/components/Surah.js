@@ -12,6 +12,7 @@ const Surah = ({ currentSurah, libraryStatus }) => {
   const onLoadHandler = () => {
     setLoading(true);
   };
+  currentSurah.name = currentSurah.name.split("(")[0];
 
   return (
     <div className={`surah-container`}>
@@ -25,7 +26,7 @@ const Surah = ({ currentSurah, libraryStatus }) => {
       {loading && <img src={currentSurah.cover} alt="" />} */}
       <div style={s} className="cover-art"></div>
 
-      <h2>{currentSurah.name}</h2>
+      <h2>Surah {" " + currentSurah.name}</h2>
       <h3>{currentSurah.reciter}</h3>
     </div>
   );

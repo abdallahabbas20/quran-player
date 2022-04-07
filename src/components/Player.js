@@ -29,8 +29,17 @@ const Player = ({
     }
   };
 
+  const addPadding = (time) => {
+    if (time.length !== 5) {
+      let paddedTime = "0" + time;
+      return paddedTime;
+    } else {
+      return time;
+    }
+  };
+
   const getTime = (time) => {
-    return (
+    return addPadding(
       Math.floor(time / 60) + ":" + ("0" + Math.floor(time % 60)).slice(-2)
     );
   };

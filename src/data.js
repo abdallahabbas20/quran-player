@@ -9,6 +9,19 @@ export const surahNamesList = surahNames.split(",");
 export const reciters = {
   "abdullaah_3awwaad_al-juhaynee": "Sheikh Abdullah Awad Al-Juhany",
   "abu_bakr_ash-shatri_tarawee7": "Sheikh Abu Bakr Ash-Shatri",
+  "abdurrahmaan_as-sudays": "Sheikh Abdul Rahman Al-Sudais",
+  "mahmood_khaleel_al-husaree_iza3a": "Sheikh Mahmoud Khalil Al Hussary",
+  mishaari_raashid_al_3afaasee: "Sheikh Mishary bin Rashid Alafasy",
+  "yasser_ad-dussary": "Sheikh Yasser Al-Dosari",
+  "sa3d_al-ghaamidi/complete": "Sheikh Saad al Ghamdi",
+  "Sheikh Ahmed Ragab": "Sheikh Ahmed Ragab",
+  abdurrashid_sufi: "Sheikh Abulrashid Sufi",
+  muhammad_ayyoob: "Sheikh Muhammad Ayyub",
+  "Sheikh Ayman Suwayd": "Sheikh Ayman Suwayd",
+  "maher_almu3aiqly/year1440": "Sheikh Maher al Muaiqali",
+  maher_256: "Sheikh Maher al Muaiqali (taraweeh)",
+  "muhammad_jibreel/complete": "Sheikh Muhammad Jibreel",
+  idrees_akbar: "Sheikh Idrees Abkar",
 };
 
 const Loading = () => <div>Loading...</div>;
@@ -31,10 +44,22 @@ export function getSurahs(reciter = "abdullaah_3awwaad_al-juhaynee") {
     let coverURL = `https://source.unsplash.com/collection/${collectionID}/480x480/?sig=${randomImageIndex}`;
     let s = i.toString();
     s = s.padStart(3, "0");
+
+    let audio = `https://download.quranicaudio.com/quran/${reciter}/${s}.mp3`;
+
+    const bespokeLinks = {
+      "Sheikh Ahmed Ragab": `https://quran.islamway.net//quran3/245/${s}.mp3`,
+      "Sheikh Ayman Suwayd": `https://ia600508.us.archive.org/22/items/rabieaaa2019_yahoo_002458947/${s}.mp3`,
+    };
+
+    if (reciter in bespokeLinks) {
+      audio = bespokeLinks[reciter];
+    }
+
     audioList.push({
       reciter: reciters[reciter],
       name: surahNamesList[i - 1],
-      audio: `https://download.quranicaudio.com/quran/${reciter}/${s}.mp3`,
+      audio: audio,
       id: uuidv4(),
       active: false,
       color: colors,

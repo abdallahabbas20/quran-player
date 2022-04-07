@@ -26,6 +26,8 @@ const LibrarySurah = ({
     backgroundImage: `linear-gradient(to right, rgba(${surah.color[0]}, ${surah.color[1]}, ${surah.color[2]}), rgb(${surah.color[3]}, ${surah.color[4]}, ${surah.color[5]}))`,
   };
 
+  surah.name = surah.name.split("(")[0];
+
   return (
     <div
       className={`library-surah ${
@@ -35,7 +37,7 @@ const LibrarySurah = ({
     >
       <div className="album-art" style={s}></div>
       <div className="surah-description">
-        <h3>{surah.name}</h3>
+        <h3>Surah {" " + surah.name}</h3>
         {/* <h4>{surah.reciter}</h4> */}
       </div>
     </div>

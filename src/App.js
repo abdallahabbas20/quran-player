@@ -5,6 +5,7 @@ import Surah from "./components/Surah";
 import PalettePlayer, { getSurahs } from "./data";
 import Library from "./components/Library";
 import Nav from "./components/Nav";
+import Game from "./components/Game";
 
 function App() {
   const [surahs, setSurahs] = useState(getSurahs());
@@ -12,6 +13,7 @@ function App() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [libraryStatus, setLibraryStatus] = useState(false);
   const [selectedOption, setSelectedOption] = useState("");
+  const [gameMode, setGameMode] = useState(false);
   const audioRef = useRef(null);
 
   const [surahInfo, setSurahInfo] = useState({
@@ -37,6 +39,8 @@ function App() {
     });
   };
 
+  let showGame = gameMode ? "none" : "";
+
   const surahEndHandler = async () => {
     let currentSurahIndex = surahs.findIndex(
       (surah) => surah.id === currentSurah.id
@@ -53,30 +57,61 @@ function App() {
 
   return (
     <div className={`App ${libraryStatus ? "library-active" : ""}`}>
-      <Nav libraryStatus={libraryStatus} setLibraryStatus={setLibraryStatus} />
-      <Surah currentSurah={currentSurah} libraryStatus={libraryStatus} />
-      <Player
-        currentSurah={currentSurah}
+      <Nav
+        libraryStatus={libraryStatus}
+        setLibraryStatus={setLibraryStatus}
+        gameMode={gameMode}
+        setGameMode={setGameMode}
+        audioRef={audioRef}
         isPlaying={isPlaying}
         setIsPlaying={setIsPlaying}
-        audioRef={audioRef}
-        surahInfo={surahInfo}
-        setSurahInfo={setSurahInfo}
-        surahs={surahs}
-        setCurrentSurah={setCurrentSurah}
-        // libraryStatus={libraryStatus}
       />
-      <Library
-        surahs={surahs}
-        currentSurah={currentSurah}
-        setCurrentSurah={setCurrentSurah}
-        audioRef={audioRef}
-        isPlaying={isPlaying}
-        libraryStatus={libraryStatus}
-        selectedOption={selectedOption}
-        setSelectedOption={setSelectedOption}
-        setSurahs={setSurahs}
-      />
+      {gameMode && (
+        <Game
+          libraryStatus={libraryStatus}
+          setLibraryStatus={setLibraryStatus}
+          gameMode={gameMode}
+          setGameMode={setGameMode}
+          audioRef={audioRef}
+          isPlaying={isPlaying}
+          setIsPlaying={setIsPlaying}
+          currentSurah={currentSurah}
+          surahInfo={surahInfo}
+          setSurahInfo={setSurahInfo}
+          surahs={surahs}
+          setCurrentSurah={setCurrentSurah}
+        />
+      )}
+      <div
+        style={{
+          display: showGame,
+        }}
+      >
+        <Surah currentSurah={currentSurah} libraryStatus={libraryStatus} />
+        <Player
+          currentSurah={currentSurah}
+          isPlaying={isPlaying}
+          setIsPlaying={setIsPlaying}
+          audioRef={audioRef}
+          surahInfo={surahInfo}
+          setSurahInfo={setSurahInfo}
+          surahs={surahs}
+          setCurrentSurah={setCurrentSurah}
+          // libraryStatus={libraryStatus}
+        />
+        <Library
+          surahs={surahs}
+          currentSurah={currentSurah}
+          setCurrentSurah={setCurrentSurah}
+          audioRef={audioRef}
+          isPlaying={isPlaying}
+          libraryStatus={libraryStatus}
+          selectedOption={selectedOption}
+          setSelectedOption={setSelectedOption}
+          setSurahs={setSurahs}
+        />
+      </div>
+
       <audio
         ref={audioRef}
         src={currentSurah.audio}

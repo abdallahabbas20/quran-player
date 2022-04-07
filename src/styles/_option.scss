@@ -1,0 +1,23 @@
+.option {
+  border: 2px solid rgb(65, 65, 65);
+  width: 50%;
+  margin: 20px;
+  padding: 20px;
+  cursor: pointer;
+  &:hover {
+    background: rgb(65, 65, 65);
+    color: white;
+  }
+}
+
+.option-incorrect {
+  background: rgb(100, 9, 6);
+  border: 2px solid rgb(100, 9, 6);
+  color: white;
+}
+
+.option-correct {
+  background: rgb(6, 100, 6) !important;
+  border: 2px solid rgb(6, 100, 6) !important;
+  color: white;
+}
