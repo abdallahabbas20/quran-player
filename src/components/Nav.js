@@ -24,7 +24,7 @@ const Nav = ({
   };
   return (
     <nav>
-      <h1>Quran.io</h1>
+      <h1>QuranHub</h1>
       <div className="inline">
         <button className="hide" onClick={onGameClickHandler}>
           Start Game
