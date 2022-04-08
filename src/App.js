@@ -106,6 +106,7 @@ function App() {
           audioRef={audioRef}
           isPlaying={isPlaying}
           libraryStatus={libraryStatus}
+          setLibraryStatus={setLibraryStatus}
           selectedOption={selectedOption}
           setSelectedOption={setSelectedOption}
           setSurahs={setSurahs}

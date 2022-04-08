@@ -6,14 +6,21 @@ const LibrarySurah = ({
   setCurrentSurah,
   audioRef,
   isPlaying,
+  libraryStatus,
+  setLibraryStatus,
 }) => {
   const [loading, setLoading] = useState(false);
+  const [width, setWidth] = useState(window.innerWidth);
   const onLoadHandler = () => {
     setLoading(true);
   };
   const onClickHandler = async () => {
     // currentSurah.active = false;
     // surah.active = true;
+    if (width < 600) {
+      console.log(width);
+      setLibraryStatus(false);
+    }
     await setCurrentSurah(surah);
     if (isPlaying) audioRef.current.play();
   };

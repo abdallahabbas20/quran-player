@@ -12,6 +12,7 @@ const Library = ({
   selectedOption,
   setSelectedOption,
   setSurahs,
+  setLibraryStatus,
 }) => {
   return (
     <div className={`library ${libraryStatus ? "open-library" : ""}`}>
@@ -34,6 +35,8 @@ const Library = ({
             setCurrentSurah={setCurrentSurah}
             audioRef={audioRef}
             isPlaying={isPlaying}
+            libraryStatus={libraryStatus}
+            setLibraryStatus={setLibraryStatus}
           />
         ))}
       </div>
