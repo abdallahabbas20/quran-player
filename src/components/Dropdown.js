@@ -44,6 +44,8 @@ const DropdownHeader = styled("div")`
 
 const DropdownListContainer = styled("div")`
   transition: ${(props) => (props.active ? "opacity 2s linear" : "none")};
+  overflow-y: scroll;
+  max-height: 50vh;
 `;
 
 const DropdownList = styled("ul")`

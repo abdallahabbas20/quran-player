@@ -11,7 +11,6 @@ export const reciters = {
   "abu_bakr_ash-shatri_tarawee7": "Sheikh Abu Bakr Ash-Shatri",
   "abdurrahmaan_as-sudays": "Sheikh Abdul Rahman Al-Sudais",
   "mahmood_khaleel_al-husaree_iza3a": "Sheikh Mahmoud Khalil Al Hussary",
-  mishaari_raashid_al_3afaasee: "Sheikh Mishary bin Rashid Alafasy",
   "yasser_ad-dussary": "Sheikh Yasser Al-Dosari",
   "sa3d_al-ghaamidi/complete": "Sheikh Saad al Ghamdi",
   "Sheikh Ahmed Ragab": "Sheikh Ahmed Ragab",
