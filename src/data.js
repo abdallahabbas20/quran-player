@@ -8,6 +8,7 @@ const surahNames =
 export const surahNamesList = surahNames.split(",");
 export const reciters = {
   "abdullaah_3awwaad_al-juhaynee": "Sheikh Abdullah Awad Al-Juhany",
+  "Sheikh Abdul Rahman Al Ossi": "Sheikh Abdul Rahman Al Ossi",
   "abu_bakr_ash-shatri_tarawee7": "Sheikh Abu Bakr Ash-Shatri",
   "abdurrahmaan_as-sudays": "Sheikh Abdul Rahman Al-Sudais",
   "mahmood_khaleel_al-husaree_iza3a": "Sheikh Mahmoud Khalil Al Hussary",
@@ -50,6 +51,7 @@ export function getSurahs(reciter = "abdullaah_3awwaad_al-juhaynee") {
     const bespokeLinks = {
       "Sheikh Ahmed Ragab": `https://quran.islamway.net//quran3/245/${s}.mp3`,
       "Sheikh Ayman Suwayd": `https://ia600508.us.archive.org/22/items/rabieaaa2019_yahoo_002458947/${s}.mp3`,
+      "Sheikh Abdul Rahman Al Ossi": `https://server6.mp3quran.net/aloosi/${s}.mp3`,
     };
 
     if (reciter in bespokeLinks) {
